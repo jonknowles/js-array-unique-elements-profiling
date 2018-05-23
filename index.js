@@ -69,9 +69,9 @@ const testMe = (testFn, name, arr) => {
   }
   const end = new Date();
 
-  console.log(`${name}:`);
-  console.log(`Time elapsed: ${end - start}ms`);
-  console.log(`Items/ms: ${(limit * arr.length)/(end - start)}`);
+  console.log(`  ${name}:`);
+  console.log(`    Time elapsed: ${end - start}ms`);
+  console.log(`    Items/ms:     ${Math.round((limit * arr.length)/(end - start))}`);
   console.log();
 };
 
@@ -95,9 +95,9 @@ const objForEachTest = arr => {
 console.log("Small")
 testMe(lodashUniqTest, "lodash.uniq", smallTestArray);
 testMe(underscoreUniqTest, "underscore.uniq", smallTestArray);
-testMe(setTest, "ES6 Set", smallTestArray);
-// testMe(objAssignTest, "Object assign", smallTestArray);
-// testMe(objAssignImmutableTest, "Object assign immutable", smallTestArray);
+testMe(setTest, "Set", smallTestArray);
+testMe(objAssignTest, "Object assign", smallTestArray);
+testMe(objAssignImmutableTest, "Object assign immutable", smallTestArray);
 testMe(objReduceTest, "Object reduce", smallTestArray);
 testMe(objForEachTest, "Object for each", smallTestArray);
 
@@ -105,12 +105,12 @@ console.log("Medium")
 testMe(lodashUniqTest, "lodash.uniq", mediumTestArray);
 testMe(underscoreUniqTest, "underscore.uniq", mediumTestArray);
 testMe(setTest, "Set", mediumTestArray);
-// testMe(objAssignTest, "Object assign", mediumTestArray);
+testMe(objAssignTest, "Object assign", mediumTestArray);
 // testMe(objAssignImmutableTest, "Object assign immutable", mediumTestArray);
 testMe(objReduceTest, "Object reduce", mediumTestArray);
 testMe(objForEachTest, "Object for each", mediumTestArray);
 
-// console.log("Large")
+console.log("Large")
 // testMe(uniqTest, "Uniq", largeTestArray);
-// testMe(setTest, "Set", largeTestArray);
+testMe(setTest, "Set", largeTestArray);
 // // testMe(objTest, "Obj", largeTestArray);
